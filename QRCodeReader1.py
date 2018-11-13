@@ -5,6 +5,7 @@ import urllib.parse
 import winsound
 from datetime import datetime
 import json
+import time
 
 
 def createHeader(filename):
@@ -52,6 +53,9 @@ def loop(cap, record):
                 s2 = urllib.parse.unquote(s)
                 record.append(s2)
                 print(s2)
+                time.sleep(1)
+                
+                ret, img = cap.read()
                 break
         
         key = cv2.waitKey(1)
